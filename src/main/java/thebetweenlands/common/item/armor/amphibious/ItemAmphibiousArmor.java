@@ -172,12 +172,12 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 		        	itemStack.getTagCompound().setBoolean("urchinAuto", true);
 		        	itemStack.getTagCompound().setBoolean("electricAuto", true);
 		        	itemStack.getTagCompound().setBoolean("glideAuto", true);
-					itemStack.getTagCompound().setBoolean("ascentAuto", true);
+				itemStack.getTagCompound().setBoolean("ascentAuto", true);
 		            }
 
 				int vortexCount = getUpgradeCount(itemStack, AmphibiousArmorUpgrades.FISH_VORTEX);
 				int urchinCount = getUpgradeCount(itemStack, AmphibiousArmorUpgrades.URCHIN);
-				int electricCount = getUpgradeCount(itemStack, AmphibiousArmorUpgrades.ELECTRIC);
+				int electricCount = getUpgradeCount(itemStack, AmphibiousArmorUpgrades.ELECTRIC) * 5;
 				int glideCount = getUpgradeCount(itemStack, AmphibiousArmorUpgrades.GLIDE);
 
 				long urchinAOECooldown = nbt.getLong(NBT_URCHIN_AOE_COOLDOWN);
@@ -187,7 +187,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 					if (world.getTotalWorldTime() % 200 == 0) { //TODO dunno about timings yet
 						if (!world.isRemote) {// && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 							armorEffectsHelper.activateFishVortex(world, player, vortexCount);
-							damageUpgrade(itemStack, AmphibiousArmorUpgrades.FISH_VORTEX, 1, DamageEvent.ON_USE, false);
+							damageUpgrade(itemStack, AmphibiousArmorUpgrades.FISH_VORTEX, 0, DamageEvent.ON_USE, false);
 						}
 					}
 				}
@@ -196,7 +196,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 					if (world.getTotalWorldTime() %10 == 0 && world.getTotalWorldTime() >= urchinAOECooldown) {
 						if (!world.isRemote) {// && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 							armorEffectsHelper.activateUrchinSpikes(world, player, urchinCount, nbt);
-							damageUpgrade(itemStack, AmphibiousArmorUpgrades.URCHIN, 1, DamageEvent.ON_USE, false);
+							damageUpgrade(itemStack, AmphibiousArmorUpgrades.URCHIN, 0, DamageEvent.ON_USE, false);
 						}
 					}
 				}
@@ -205,7 +205,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 					if (player.hurtResistantTime == player.maxHurtResistantTime && world.getTotalWorldTime() >= electricCooldown) {
 						if (!world.isRemote) {// && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 							armorEffectsHelper.activateElectricEntity(world, player, electricCount, nbt);
-							damageUpgrade(itemStack, AmphibiousArmorUpgrades.ELECTRIC, 1, DamageEvent.ON_USE, false);
+							damageUpgrade(itemStack, AmphibiousArmorUpgrades.ELECTRIC, 0, DamageEvent.ON_USE, false);
 						}
 					}
 				}
@@ -218,7 +218,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 						player.motionY *= 0.6D - glideCount * 0.1F;
 
 						if(player.ticksExisted % 20 == 0) {
-							damageUpgrade(itemStack, AmphibiousArmorUpgrades.GLIDE, 1, DamageEvent.ON_USE, false);
+							damageUpgrade(itemStack, AmphibiousArmorUpgrades.GLIDE, 0, DamageEvent.ON_USE, false);
 						}
 					}
 				}
@@ -245,7 +245,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 							player.motionZ += lookVec.z * speed;
 							player.motionY += lookVec.y * 0.5D;
 
-							damageUpgrade(itemStack, AmphibiousArmorUpgrades.ASCENT_BOOST, 1, DamageEvent.ON_USE, false);
+							damageUpgrade(itemStack, AmphibiousArmorUpgrades.ASCENT_BOOST, 0, DamageEvent.ON_USE, false);
 						}
 
 						ascentBoostTicks = Math.max(0, ascentBoostTicks - 1);
@@ -291,7 +291,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 						for(EntityAnadia anadia : world.getEntitiesWithinAABB(EntityAnadia.class, aabb, a -> a.getDistanceSq(player.getPosition().getX() + 0.5f, player.getPosition().getY() + 0.5f, player.getPosition().getZ() + 0.5f) <= radius * radius)) {
 							if(!anadia.isGlowing()) {
 								anadia.setGlowTimer(200);
-								damageUpgrade(itemStack, AmphibiousArmorUpgrades.FISH_SIGHT, 1, DamageEvent.ON_USE, false);
+								damageUpgrade(itemStack, AmphibiousArmorUpgrades.FISH_SIGHT, 0, DamageEvent.ON_USE, false);
 							}
 						}
 					}
@@ -433,7 +433,7 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 	@Override
 	public void setDamage(ItemStack stack, int damage) {
 		for(IAmphibiousArmorUpgrade upgrade : AmphibiousArmorUpgrades.values()) {
-			this.damageUpgrade(stack, upgrade, 1, DamageEvent.ON_DAMAGE, true);
+			this.damageUpgrade(stack, upgrade, 0, DamageEvent.ON_DAMAGE, true);
 		}
 
 		if(getDamage(stack) >= stack.getMaxDamage()) {
