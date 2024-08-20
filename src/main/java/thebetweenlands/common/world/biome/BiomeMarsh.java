@@ -51,7 +51,8 @@ public class BiomeMarsh extends BiomeBetweenlands {
 				.setWaterColor(0x485E18)
 				.setTemperature(0.8F)
 				.setRainfall(0.9F));
-		
+
+		this.setFogColor(28, 27, 7);
 		this.setWeight(type == 0 ? 10 : 4);
 		this.getBiomeGenerator()
 		.addFeature(type == 0 ? new Marsh1Feature() : new Marsh2Feature())
@@ -68,24 +69,24 @@ public class BiomeMarsh extends BiomeBetweenlands {
 	protected void addSpawnEntries(List<ICustomSpawnEntry> entries) {
 		super.addSpawnEntries(entries);
 
-		entries.add(new SurfaceSpawnEntry(0, EntityFirefly.class, EntityFirefly::new, (short) 65).setCanSpawnOnWater(true).setSpawnCheckRadius(32.0D));
-		entries.add(new SporelingSpawnEntry(1, EntitySporeling.class, EntitySporeling::new, (short) 80).setGroupSize(2, 5).setSpawnCheckRadius(32.0D));
-		entries.add(new CaveSpawnEntry(2, EntityOlm.class, EntityOlm::new, (short) 30).setCanSpawnInWater(true).setGroupSize(3, 5).setSpawnCheckRadius(32.0D));
-		entries.add(new GreeblingSpawnEntry(3, (short) 10).setGroupSize(1, 3).setSpawnCheckRadius(64.0D).setGroupSpawnRadius(4).setSpawningInterval(24000));
+		entries.add(new SurfaceSpawnEntry(0, EntityFirefly.class, EntityFirefly::new, (short) 65).setCanSpawnOnWater(true).setSpawnCheckRadius(24.0D));
+		entries.add(new SporelingSpawnEntry(1, EntitySporeling.class, EntitySporeling::new, (short) 80).setGroupSize(2, 5).setSpawnCheckRadius(24.0D));
+		entries.add(new CaveSpawnEntry(2, EntityOlm.class, EntityOlm::new, (short) 30).setCanSpawnInWater(true).setGroupSize(3, 5).setSpawnCheckRadius(24.0D));
+		entries.add(new GreeblingSpawnEntry(3, (short) 10).setGroupSize(1, 3).setSpawnCheckRadius(28.0D).setGroupSpawnRadius(4).setSpawningInterval(24000));
 		
-		entries.add(new SurfaceSpawnEntry(4, EntityWight.class, EntityWight::new, (short) 5).setHostile(true).setSpawnCheckRadius(64.0D).setSpawningInterval(4000));
-		entries.add(new CaveSpawnEntry(5, EntityWight.class, EntityWight::new, (short) 16).setHostile(true).setSpawnCheckRadius(64.0D));
-		entries.add(new SurfaceSpawnEntry(6, EntityPeatMummy.class, EntityPeatMummy::new, (short) 12).setHostile(true).setSpawnCheckRadius(64.0D));
-		entries.add(new SurfaceSpawnEntry(7, EntityChiromaw.class, EntityChiromaw::new, (short) 40).setHostile(true).setSpawnCheckRadius(64.0D).setSpawnCheckRangeY(20.0D));
-		entries.add(new CaveSpawnEntry(8, EntityChiromaw.class, EntityChiromaw::new, (short) 60).setHostile(true).setSpawnCheckRadius(40.0D).setGroupSize(1, 3));
+		entries.add(new SurfaceSpawnEntry(4, EntityWight.class, EntityWight::new, (short) 5).setHostile(true).setSpawnCheckRadius(30.0D).setSpawningInterval(4000));
+		entries.add(new CaveSpawnEntry(5, EntityWight.class, EntityWight::new, (short) 16).setHostile(true).setSpawnCheckRadius(30.0D));
+		entries.add(new SurfaceSpawnEntry(6, EntityPeatMummy.class, EntityPeatMummy::new, (short) 12).setHostile(true).setSpawnCheckRadius(30.0D));
+		entries.add(new SurfaceSpawnEntry(7, EntityChiromaw.class, EntityChiromaw::new, (short) 40).setHostile(true).setSpawnCheckRadius(28.0D).setSpawnCheckRangeY(20.0D));
+		entries.add(new CaveSpawnEntry(8, EntityChiromaw.class, EntityChiromaw::new, (short) 60).setHostile(true).setSpawnCheckRadius(28.0D).setGroupSize(1, 3));
 		entries.add(new SwampHagCaveSpawnEntry(9, (short) 120).setHostile(true).setSpawnCheckRadius(24.0D).setGroupSize(1, 3));
 		entries.add(new CaveSpawnEntry(10, EntityAngler.class, EntityAngler::new, (short) 40).setCanSpawnInWater(true).setHostile(true).setGroupSize(1, 3));
-		entries.add(new SurfaceSpawnEntry(11, EntityGasCloud.class, EntityGasCloud::new, (short) 3).setCanSpawnOnWater(true).setHostile(true).setSpawnCheckRadius(64.0D).setSpawnCheckRangeY(64.0D));
+		entries.add(new SurfaceSpawnEntry(11, EntityGasCloud.class, EntityGasCloud::new, (short) 3).setCanSpawnOnWater(true).setHostile(true).setSpawnCheckRadius(30.0D).setSpawnCheckRangeY(64.0D));
 		entries.add(new BetweenstoneCaveSpawnEntry(12, EntityBoulderSprite.class, EntityBoulderSprite::new, (short) 60).setHostile(true).setSpawnCheckRadius(16.0D).setSpawnCheckRangeY(8));
-		entries.add(new SkySpawnEntry(13, EntityChiromawGreeblingRider.class, EntityChiromawGreeblingRider::new, (short) 20).setSpawnCheckRadius(64.0D).setGroupSize(1, 3).setSpawningInterval(600).setHostile(true));
-		entries.add(new PitstoneCaveSpawnEntry(14, EntityStalker.class, EntityStalker::new, (short) 10).setConstantWeight(true).setHostile(true).setSpawnCheckRadius(64.0D).setSpawnCheckRangeY(16).setSpawningInterval(6000));
-		entries.add(new CaveSpawnEntry(15, EntitySwarm.class, EntitySwarm::new, (short) 60).setConstantWeight(true).setHostile(true).setSpawnCheckRadius(32.0D));
-		entries.add(new CaveSpawnEntry(16, EntityCaveFish.class, EntityCaveFish::new, (short) 30).setCanSpawnInWater(true).setGroupSize(1, 3).setSpawnCheckRadius(32.0D));
+		entries.add(new SkySpawnEntry(13, EntityChiromawGreeblingRider.class, EntityChiromawGreeblingRider::new, (short) 20).setSpawnCheckRadius(28.0D).setGroupSize(1, 3).setSpawningInterval(600).setHostile(true));
+		entries.add(new PitstoneCaveSpawnEntry(14, EntityStalker.class, EntityStalker::new, (short) 10).setConstantWeight(true).setHostile(true).setSpawnCheckRadius(30.0D).setSpawnCheckRangeY(16).setSpawningInterval(6000));
+		entries.add(new CaveSpawnEntry(15, EntitySwarm.class, EntitySwarm::new, (short) 60).setConstantWeight(true).setHostile(true).setSpawnCheckRadius(26.0D));
+		entries.add(new CaveSpawnEntry(16, EntityCaveFish.class, EntityCaveFish::new, (short) 30).setCanSpawnInWater(true).setGroupSize(1, 3).setSpawnCheckRadius(24.0D));
 	}
 
 	private float fogRangeInterpolateStart = 0.0F;
