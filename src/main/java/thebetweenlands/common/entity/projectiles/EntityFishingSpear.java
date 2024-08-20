@@ -206,7 +206,7 @@ public class EntityFishingSpear extends Entity implements IProjectile, IThrowabl
 		super.onUpdate();
 		
 		if(!world.isRemote) {
-			if(getItemStackDamage() >= 64) {  // needs to match or exceed Item maxDamage
+			if(getItemStackDamage() >= 500) {  // needs to match or exceed Item maxDamage
 				getEntityWorld().setEntityState(this, EVENT_DEAD);
 				setDead();
 			}
@@ -389,6 +389,8 @@ public class EntityFishingSpear extends Entity implements IProjectile, IThrowabl
 			} else if (entity instanceof EntityAngler) {
 				setDamage(((EntityAngler) entity).getMaxHealth());
 				f = 1;
+			} else if (entity instanceof EntityPlayer) {
+				setDamage(0);
 			} else if (returningTicks > 0 && entity != shootingEntity ) {
 				setDamage(4);
 			}
@@ -431,7 +433,7 @@ public class EntityFishingSpear extends Entity implements IProjectile, IThrowabl
 			}
 		} else {
 			if (!world.isRemote && !inGround && !isInWater())
-				setItemStackDamage(getItemStackDamage() + 2);
+				setItemStackDamage(getItemStackDamage() + 1);
 
 			BlockPos blockpos = raytraceResultIn.getBlockPos();
 			xTile = blockpos.getX();
