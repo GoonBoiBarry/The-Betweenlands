@@ -41,9 +41,9 @@ public class ItemFishingSpear extends Item implements IAnimatorRepairable{
 		this.type = type;
 
 		if(type == 2)
-			setMaxDamage(128);
+			setMaxDamage(500);
 		else
-			setMaxDamage(64);
+			setMaxDamage(250);
 
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)
@@ -120,13 +120,13 @@ public class ItemFishingSpear extends Item implements IAnimatorRepairable{
 						entitySpear.setAnimated(isAnimated(stack));
 						switch(type) {
 						case 0:
-							entitySpear.setDamage(2);
+							entitySpear.setDamage(7);
 							break;
 						case 1:
-							entitySpear.setDamage(3);
+							entitySpear.setDamage(9);
 							break;
 						case 2:
-							entitySpear.setDamage(4);
+							entitySpear.setDamage(11);
 							break;
 						}
 						worldIn.spawnEntity(entitySpear);
@@ -162,21 +162,21 @@ public class ItemFishingSpear extends Item implements IAnimatorRepairable{
 
 	@Override
 	public int getMinRepairFuelCost(ItemStack stack) {
-		return BLMaterialRegistry.getMinRepairFuelCost(BLMaterialRegistry.TOOL_WEEDWOOD);
+		return BLMaterialRegistry.getMinRepairFuelCost(BLMaterialRegistry.TOOL_OCTINE);
 	}
 
 	@Override
 	public int getFullRepairFuelCost(ItemStack stack) {
-		return BLMaterialRegistry.getFullRepairFuelCost(BLMaterialRegistry.TOOL_WEEDWOOD);
+		return BLMaterialRegistry.getFullRepairFuelCost(BLMaterialRegistry.TOOL_OCTINE);
 	}
 
 	@Override
 	public int getMinRepairLifeCost(ItemStack stack) {
-		return BLMaterialRegistry.getMinRepairLifeCost(BLMaterialRegistry.TOOL_WEEDWOOD);
+		return BLMaterialRegistry.getMinRepairLifeCost(BLMaterialRegistry.TOOL_OCTINE);
 	}
 
 	@Override
 	public int getFullRepairLifeCost(ItemStack stack) {
-		return BLMaterialRegistry.getFullRepairLifeCost(BLMaterialRegistry.TOOL_WEEDWOOD);
+		return BLMaterialRegistry.getFullRepairLifeCost(BLMaterialRegistry.TOOL_OCTINE);
 	}
 }
