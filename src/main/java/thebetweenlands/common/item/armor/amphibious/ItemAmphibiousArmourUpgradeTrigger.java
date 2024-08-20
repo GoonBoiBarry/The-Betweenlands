@@ -130,7 +130,7 @@ public class ItemAmphibiousArmourUpgradeTrigger extends Item {
 								if (!world.isRemote && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 									armorEffectsHelper.spawnUrchinSpikes(world, player, urchinCount);
 									nbt.setLong(armorEffectsHelper.NBT_URCHIN_AOE_COOLDOWN, world.getTotalWorldTime() + 50);
-									((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.URCHIN, 1, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
+									((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.URCHIN, 0, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
 								}
 							}
 						}
@@ -141,7 +141,7 @@ public class ItemAmphibiousArmourUpgradeTrigger extends Item {
 						if (vortexCount >= 1)
 							if (!world.isRemote && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 								armorEffectsHelper.activateFishVortex(world, player, vortexCount);
-								((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.FISH_VORTEX, 1, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
+								((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.FISH_VORTEX, 0, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
 							}
 					}
 
@@ -153,7 +153,7 @@ public class ItemAmphibiousArmourUpgradeTrigger extends Item {
 								if (!world.isRemote && world.getDifficulty() != EnumDifficulty.PEACEFUL) {
 									armorEffectsHelper.spawnElectricEntity(world, player, player, electricCount);
 									nbt.setLong(armorEffectsHelper.NBT_ELECTRIC_COOLDOWN, world.getTotalWorldTime() + 50);
-									((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.ELECTRIC, 1, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
+									((ItemAmphibiousArmor)chest.getItem()).damageUpgrade(chest, AmphibiousArmorUpgrades.ELECTRIC, 0, IAmphibiousArmorUpgrade.DamageEvent.ON_USE, false);
 								}
 							}
 						}
