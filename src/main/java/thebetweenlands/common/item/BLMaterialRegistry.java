@@ -29,7 +29,7 @@ public class BLMaterialRegistry {
 	public static final ArmorMaterial ARMOR_RUBBER = EnumHelper.addArmorMaterial("rubber", "rubber", 10, new int[]{1, 0, 0, 0}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f);
 	public static final ArmorMaterial ARMOR_LEGEND = EnumHelper.addArmorMaterial("legend", "legend", 66, new int[]{6, 12, 16, 6}, 0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0f);
 	public static final ArmorMaterial ARMOR_ANCIENT = EnumHelper.addArmorMaterial("ancient", "ancient", 35, new int[]{3, 6, 8, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f);
-	public static final ArmorMaterial ARMOR_AMPHIBIOUS = EnumHelper.addArmorMaterial("amphibious", "amphibious", 35, new int[]{1, 2, 3, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0f);
+	public static final ArmorMaterial ARMOR_AMPHIBIOUS = EnumHelper.addArmorMaterial("amphibious", "amphibious", 10, new int[]{1, 2, 3, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0f);
 
 	public static final Material MUD = new Material(MapColor.DIRT) {
 		@Override
@@ -158,7 +158,7 @@ public class BLMaterialRegistry {
 		} else if(material == ARMOR_RUBBER) {
 			return 3;
 		} else if(material == ARMOR_LURKER_SKIN) {
-			return 6;
+			return 4;
 		} else if(material == ARMOR_SYRMORITE) {
 			return 5;
 		} else if(material == ARMOR_VALONITE) {
@@ -179,7 +179,7 @@ public class BLMaterialRegistry {
 		} else if(material == ARMOR_RUBBER) {
 			return 8;
 		} else if(material == ARMOR_LURKER_SKIN) {
-			return 16;
+			return 10;
 		} else if(material == ARMOR_SYRMORITE) {
 			return 12;
 		} else if(material == ARMOR_VALONITE) {
@@ -200,7 +200,7 @@ public class BLMaterialRegistry {
 		} else if(material == ARMOR_RUBBER) {
 			return 4;
 		} else if(material == ARMOR_LURKER_SKIN) {
-			return 12;
+			return 4;
 		} else if(material == ARMOR_SYRMORITE) {
 			return 5;
 		} else if(material == ARMOR_VALONITE) {
@@ -221,7 +221,7 @@ public class BLMaterialRegistry {
 		} else if(material == ARMOR_RUBBER) {
 			return 16;
 		} else if(material == ARMOR_LURKER_SKIN) {
-			return 48;
+			return 16;
 		} else if(material == ARMOR_SYRMORITE) {
 			return 32;
 		} else if(material == ARMOR_VALONITE) {
