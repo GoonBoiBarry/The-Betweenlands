@@ -41,9 +41,9 @@ public class ItemFishingSpear extends Item implements IAnimatorRepairable{
 		this.type = type;
 
 		if(type == 2)
-			setMaxDamage(500);
+			setMaxDamage(128);
 		else
-			setMaxDamage(250);
+			setMaxDamage(64);
 
 		this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)
@@ -120,13 +120,13 @@ public class ItemFishingSpear extends Item implements IAnimatorRepairable{
 						entitySpear.setAnimated(isAnimated(stack));
 						switch(type) {
 						case 0:
-							entitySpear.setDamage(7);
+							entitySpear.setDamage(4);
 							break;
 						case 1:
-							entitySpear.setDamage(9);
+							entitySpear.setDamage(5);
 							break;
 						case 2:
-							entitySpear.setDamage(11);
+							entitySpear.setDamage(7);
 							break;
 						}
 						worldIn.spawnEntity(entitySpear);
