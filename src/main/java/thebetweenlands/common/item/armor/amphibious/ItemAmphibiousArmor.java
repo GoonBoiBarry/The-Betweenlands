@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 import net.minecraft.block.state.IBlockState;
@@ -416,7 +417,10 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 	@Override
 	public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack) {
 		Multimap<String, AttributeModifier> modifiers = super.getAttributeModifiers(slot, stack);
-
+		if(stack.getItemDamage() == stack.getMaxDamage()) {
+			//Armor shouldn't give any reduction when fully damaged
+		return HashMultimap.create();
+		}
 		if(slot == this.armorType) {
 			for(IAmphibiousArmorUpgrade upgrade : AmphibiousArmorUpgrades.getUpgrades(this.armorType)) {
 				int count = this.getUpgradeCount(stack, upgrade);
@@ -451,7 +455,11 @@ public class ItemAmphibiousArmor extends Item3DArmor {
 				}
 			}
 		}
-
+		int maxDamage = stack.getMaxDamage();
+		if(damage > maxDamage) {
+			//Don't let the sword break
+			damage = maxDamage;
+		}
 		super.setDamage(stack, damage);
 	}
 
